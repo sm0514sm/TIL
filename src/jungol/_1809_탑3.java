@@ -1,5 +1,6 @@
 package jungol;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -7,26 +8,29 @@ public class _1809_탑3 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int N = sc.nextInt();
-		Stack<Integer> stack = new Stack<Integer>();
-
+		int[] top = new int[N];
+		int[] answer = new int[N];
+		int index = 0;
+		
 		for (int i = 0; i < N; i++) {
-			boolean isPrint = false;
-			int next = sc.nextInt();
-			int dif = 1;
-			while (stack.size() - dif >= 0) {
-				int temp = stack.get(stack.size() - dif);
-				if(temp > next) {
-					isPrint = true;
-					System.out.print((i-dif+1) + " ");
+			top[i] = sc.nextInt();
+			for (int j = i-1; j >= 0; j--) {
+				if(top[j] > top[i]) {
+					answer[i] = j+1;
 					break;
 				}
-				dif++;
+				else {
+					if(top[answer[j]] > top[i]) {
+						answer[i] = answer[j];
+						break;
+					}
+					else {
+						j = answer[j];
+					}
+				}
 			}
-			if(!isPrint)
-				System.out.print(0 + " ");
-			stack.push(next);
+			System.out.print(answer[i] + " ");
 		}
-
 		sc.close();
 	}
 }
