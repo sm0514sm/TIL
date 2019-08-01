@@ -24,6 +24,8 @@ public class ProductTest {
 			while(true) {
 				String no, name, type;
 				int price, inch, size, num;
+				ArrayList<Product> tempProds;
+				Product tempProd;
 				printMenu();
 				switch (Integer.parseInt(sc.nextLine())) {
 				case 0:
@@ -58,7 +60,7 @@ public class ProductTest {
 					break;
 				case 2:
 					System.out.println(line + "데이터 전체 검색" + line);
-					ArrayList<Product> tempProds = manager.printProductInfo();
+					tempProds = manager.printProductInfo();
 					for(Product temp: tempProds)
 						System.out.println(temp);
 					break;
@@ -66,15 +68,31 @@ public class ProductTest {
 					System.out.println(line + "상품번호로 상품 검색" + line);
 					System.out.print("검색할 상품번호 입력\n>> ");
 					no = sc.nextLine();
-					try {manager.findWithNO(no);} catch (Exception e) {System.out.println(e.getMessage());}
+					try {
+						tempProd = manager.findWithNO(no);
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
 					break;
 				case 4:
 					System.out.println(line + "400L 이상의 Refrigerator 검색" + line);
-					try {manager.OnlyBigger400Refrigerator();} catch (Exception e) {System.out.println(e.getMessage());}
+					try {
+						tempProds = manager.OnlyBigger400Refrigerator();
+						for(Product temp: tempProds)
+							System.out.println(temp);
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
 					break;
 				case 5:
 					System.out.println(line + "50 inch 이상의 TV 검색" + line);
-					try {manager.OnlyBigger50TV();} catch (Exception e) {System.out.println(e.getMessage());}
+					try {
+						tempProds = manager.OnlyBigger50TV();
+						for(Product temp: tempProds)
+							System.out.println(temp);
+					} catch (Exception e) {
+						System.out.println(e.getMessage());
+					}
 					
 					break;
 				case 6:

@@ -18,9 +18,11 @@ public class ProductMgrImpl implements IProductMgr{
 		if (Product == null)
 			return;
 		for(Product tempProduct : prods)
-			if(tempProduct.getNo().equals(tempProduct.getNo()))
+			if(tempProduct.getNo().equals(Product.getNo())) {
 				return;
+			}
 		prods.add(Product);
+		System.out.println("qwdqdw");
 	}
 
 	@Override

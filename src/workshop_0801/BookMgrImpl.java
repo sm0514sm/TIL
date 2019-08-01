@@ -37,6 +37,9 @@ public class BookMgrImpl implements IBookMgr {
 				targetBook = tempBook;
 		if(targetBook == null)
 			throw new ISBNNotFoundException("찾을 수 없는 도서 번호입니당");
+		if(targetBook.getQuantity() == quantity) {
+			books.remove(targetBook);
+		}
 		if(targetBook.getQuantity() - quantity < 0)
 			throw new QuantityException("판매할 수 있는 개수가 초과댐!");
 		targetBook.setQuantity(targetBook.getQuantity() - quantity);
