@@ -1,4 +1,4 @@
-package SW_Expert;
+package _SW_Expert;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner;

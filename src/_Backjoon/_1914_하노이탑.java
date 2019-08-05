@@ -1,4 +1,4 @@
-package Backjoon;
+package _Backjoon;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

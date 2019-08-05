@@ -1,4 +1,4 @@
-package SW_Expert;
+package _SW_Expert;
 import java.util.Scanner;
 
 public class _1284_수도요금경쟁 {

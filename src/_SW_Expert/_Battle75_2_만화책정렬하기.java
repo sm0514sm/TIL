@@ -1,4 +1,4 @@
-package SW_Expert;
+package _SW_Expert;
 import java.util.Scanner;
 
 public class _Battle75_2_만화책정렬하기 {

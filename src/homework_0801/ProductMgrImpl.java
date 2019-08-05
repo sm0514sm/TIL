@@ -22,7 +22,6 @@ public class ProductMgrImpl implements IProductMgr{
 				return;
 			}
 		prods.add(Product);
-		System.out.println("qwdqdw");
 	}
 
 	@Override
@@ -70,7 +69,7 @@ public class ProductMgrImpl implements IProductMgr{
 		ObjectOutputStream oos = null;
 		FileOutputStream fos = null;
 		try {
-			fos = new FileOutputStream("src/product.dat");
+			fos = new FileOutputStream("src/homework_0801/product.dat");
 			oos = new ObjectOutputStream(fos);
 			
 			oos.writeObject(prods);
@@ -87,7 +86,7 @@ public class ProductMgrImpl implements IProductMgr{
 		ObjectInputStream ois = null;
 		FileInputStream fis = null;
 		try {
-			fis = new FileInputStream("src/product.dat");
+			fis = new FileInputStream("src/homework_0801/product.dat");
 			ois = new ObjectInputStream(fis);
 			
 			prods = (ArrayList<Product>) ois.readObject();

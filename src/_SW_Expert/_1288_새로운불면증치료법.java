@@ -1,4 +1,4 @@
-package SW_Expert;
+package _SW_Expert;
 import java.util.Scanner;
 
 public class _1288_새로운불면증치료법 {

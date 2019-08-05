@@ -1,4 +1,4 @@
-package jungol;
+package _jungol;
 
 // nPr 가능 + 비트마스킹 이용함
 

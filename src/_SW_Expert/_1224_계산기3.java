@@ -1,11 +1,10 @@
-package SW_Expert;
-
+package _SW_Expert;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class _1223_계산기2 {
+public class _1224_계산기3 {
 			//SW_Expert는 Solution
 	public static int isp(char token) {
 		switch (token) {
@@ -13,6 +12,8 @@ public class _1223_계산기2 {
 			return 2;
 		case '+':
 			return 1;
+		case '(':
+			return 0;
 		default:
 			return 0;
 		}
@@ -24,13 +25,15 @@ public class _1223_계산기2 {
 			return 2;
 		case '+':
 			return 1;
+		case '(':
+			return 3;
 		default:
 			return 0;
 		}
 	}
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		System.setIn(new FileInputStream("rsc/_SW_Expert_1223.txt"));
+		System.setIn(new FileInputStream("rsc/_SW_Expert_1224.txt"));
 		Scanner sc = new Scanner(System.in);
 		
 		for (int test_case = 1; test_case <= 10; test_case++) {
@@ -42,6 +45,12 @@ public class _1223_계산기2 {
 			for(int i = 0; i < text.length(); i++) {
 				if(text.charAt(i) >= '0' && text.charAt(i) <= '9') {	//숫자면
 					resultText[index++] = text.charAt(i); 
+				}
+				else if(text.charAt(i) == ')') {
+					char temp;
+					while((temp = stack.pop()) != '(') {
+						resultText[index++] = temp;
+					}
 				}
 				else {// 연산자면
 					if(stack.size() == 0) stack.push(text.charAt(i));
@@ -58,10 +67,9 @@ public class _1223_계산기2 {
 			while(stack.size() != 0) {
 				resultText[index++] = stack.pop();
 			}
-//			System.out.println(Arrays.toString(resultText));
 			
 			Stack<Integer> calculateStack = new Stack<Integer>();
-			for(int i = 0; i < resultText.length; i++) {
+			for(int i = 0; i < index; i++) {
 				if(resultText[i] >= '0' && resultText[i] <= '9') {	//숫자면
 					calculateStack.push(resultText[i] - '0');
 				}

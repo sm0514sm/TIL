@@ -1,4 +1,4 @@
-package SW_Expert;
+package _SW_Expert;
 import java.util.Scanner;
 
 public class _8016_홀수피라미드 {
