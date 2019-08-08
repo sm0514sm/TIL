@@ -23,8 +23,8 @@ public class NewsMain {
 	INewsDAO dao;
 
 	public NewsMain(){
-//		dao=new NewsDAOSAXImpl(); 
-		dao=new NewsDAODOMImpl();
+		dao=new NewsDAOSAXImpl(); 
+//		dao=new NewsDAODOMImpl();
 		createGUI(); 
 		addEvent(); 
 		showlist();
