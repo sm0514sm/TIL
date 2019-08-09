@@ -18,6 +18,7 @@ public class __templete_brbw {
 			
 			
 			bw.write(String.format("#%d %d\n", test_case, answer));
+			bw.flush();
 		}
 	}
 }

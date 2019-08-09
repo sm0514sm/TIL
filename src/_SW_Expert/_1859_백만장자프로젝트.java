@@ -22,7 +22,6 @@ public class _1859_백만장자프로젝트 {
 			int[] whomax = new int[N];
 			for (int i = 0; i < N; i++)
 				price[i] = Integer.parseInt(st.nextToken());
-			int sum = 0;
 			int count = 0;
 			int max = 0;
 			int[] dp = new int[N];
@@ -31,11 +30,13 @@ public class _1859_백만장자프로젝트 {
 					dp[i] = i;
 					continue;
 				}
-//				if(price[i])
-				
+				if(price[i] < price[dp[i+1]])	dp[i] = dp[i+1];	// 우측에서 제일 큰값보다 작은 경우
+				else							dp[i] = i;			// 우측에서 제일 큰값보다   큰 경우
 			}
-			
-			bw.write("#"+test_case+" " + sum + " \n");
+			for(int i = 0; i < N; i++) {
+				answer += price[dp[i]] - price[i];
+			}
+			bw.write("#"+test_case+" " + answer + " \n");
 			bw.flush();
 		}
 		bw.close();
