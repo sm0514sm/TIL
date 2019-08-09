@@ -26,18 +26,14 @@ public class _1859_백만장자프로젝트 {
 			int count = 0;
 			int max = 0;
 			int[] dp = new int[N];
-
-//			for (int i = 0; i < N-1; i++) {
-//				if(price[i] <= price[i+1]) {
-//					sum += price[i];
-//					count++;
-//				}
-//				else {
-//					answer += count * price[i] - sum;
-//					sum = 0;
-//					count = 0;
-//				}
-//			}
+			for(int i = N-1; i >= 0; i--) {
+				if(i == N-1) {
+					dp[i] = i;
+					continue;
+				}
+//				if(price[i])
+				
+			}
 			
 			bw.write("#"+test_case+" " + sum + " \n");
 			bw.flush();
