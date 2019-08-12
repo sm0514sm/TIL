@@ -11,10 +11,10 @@ public class __templete_brbw {
 //		System.setIn(new FileInputStream(".txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+//		StringTokenizer st = null;
 		for (int test_case = 1, T = Integer.parseInt(br.readLine()); test_case <= T; test_case++) {
 			int answer = 0;
-//			StringTokenizer st = new StringTokenizer(br.readLine());
-			
+//			st = new StringTokenizer(br.readLine());
 			
 			
 			bw.write(String.format("#%d %d\n", test_case, answer));
