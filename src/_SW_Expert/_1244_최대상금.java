@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class _1244_최대상금 {
 	static int[] swapIndexArr;
-	static char[] arr, origArr, saveArr;
-	static int strLen, max;
-			//SW_Expert는 Solution
+	static char[] arr;
+	static int strLen, max, swapCnt;
+		//SW_Expert는 Solution
 	public static void main(String[] args) throws FileNotFoundException {
-		System.setIn(new FileInputStream("rsc/_SW_Expert_1244.txt"));
+//		System.setIn(new FileInputStream("rsc/_SW_Expert_1244.txt"));
 		Scanner sc = new Scanner(System.in);
 		for (int test_case = 1, T = sc.nextInt(); test_case <= T; test_case++) {
 			int answer = 0;
@@ -18,38 +18,40 @@ public class _1244_최대상금 {
 			max = 0;
 			String temp = sc.next();
 			strLen = temp.length();
-			int swapCnt = sc.nextInt();
+			swapCnt = sc.nextInt();
 			swapIndexArr = new int[2];
 			arr = temp.toCharArray();
-			origArr = arr.clone();
 			
 			max = Math.max(max, getValue(arr));
-			for(int i = 0; i < swapCnt; i++) {
-				combi(1, 0);
-				origArr = saveArr.clone();
-			}
+			combination(0, 0, arr, 1);
 			answer = max;
 			System.out.printf("#%d %d\n", test_case, answer);
 //			break;
 		}
 		sc.close();
 	}
-	
-	public static void combi(int before, int index) {
-		if(index == 2) {
-			arr = origArr.clone();
-			swap(swapIndexArr[0]-1, swapIndexArr[1]-1);
-			int temp = getValue(arr);
-			if (max <= temp) {
-				max = temp;
-				saveArr = arr.clone();
-			}
-			return;
-		}
-		for(int i = before ; i <= strLen; i++) {
-			swapIndexArr[index] = i;
-			combi(i, index + 1);
-		}
+	private static void combination(int before, int index, char[] arr, int cnt) {
+	    if (index == 2) {
+	    	String temp = "";
+	        for(int i = 0; i < strLen; i++) {
+	        	if(swapIndexArr[0] -1 == i)
+	        		temp += (arr[swapIndexArr[1]- 1]);
+	        	else if(swapIndexArr[1]- 1 == i)
+	        		temp += (arr[swapIndexArr[0]-1]);
+	        	else
+	        		temp += (arr[i]);
+	        }
+	        System.out.println(temp);
+	        max = Math.max(max, Integer.parseInt(temp));
+	        if(cnt != swapCnt)
+	        	combination(0, 0, temp.toCharArray(), cnt+1);
+	        return;
+	    }
+
+	    for (int i = before + 1; i <= strLen; i++) {
+	    	swapIndexArr[index] = i;
+	        combination(i, index + 1, arr, cnt);
+	    }
 	}
 	
 	public static int getValue(char[] arr) {
