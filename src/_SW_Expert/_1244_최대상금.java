@@ -9,7 +9,7 @@ public class _1244_최대상금 {
 	static int strLen, max, swapCnt;
 		//SW_Expert는 Solution
 	public static void main(String[] args) throws FileNotFoundException {
-		System.setIn(new FileInputStream("rsc/_SW_Expert_1244.txt"));
+//		System.setIn(new FileInputStream("rsc/_SW_Expert_1244.txt"));
 		Scanner sc = new Scanner(System.in);
 		for (int test_case = 1, T = sc.nextInt(); test_case <= T; test_case++) {
 			int answer = 0;
