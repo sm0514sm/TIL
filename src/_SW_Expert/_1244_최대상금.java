@@ -1,7 +1,6 @@
 package _SW_Expert;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class _1244_최대상금 {
@@ -10,7 +9,7 @@ public class _1244_최대상금 {
 	static int strLen, max, swapCnt;
 		//SW_Expert는 Solution
 	public static void main(String[] args) throws FileNotFoundException {
-//		System.setIn(new FileInputStream("rsc/_SW_Expert_1244.txt"));
+		System.setIn(new FileInputStream("rsc/_SW_Expert_1244.txt"));
 		Scanner sc = new Scanner(System.in);
 		for (int test_case = 1, T = sc.nextInt(); test_case <= T; test_case++) {
 			int answer = 0;
@@ -19,39 +18,39 @@ public class _1244_최대상금 {
 			String temp = sc.next();
 			strLen = temp.length();
 			swapCnt = sc.nextInt();
-			swapIndexArr = new int[2];
 			arr = temp.toCharArray();
 			
 			max = Math.max(max, getValue(arr));
-			combination(0, 0, arr, 1);
+			combination(0, 0);
 			answer = max;
 			System.out.printf("#%d %d\n", test_case, answer);
-//			break;
 		}
 		sc.close();
 	}
-	private static void combination(int before, int index, char[] arr, int cnt) {
-	    if (index == 2) {
-	    	String temp = "";
-	        for(int i = 0; i < strLen; i++) {
-	        	if(swapIndexArr[0] -1 == i)
-	        		temp += (arr[swapIndexArr[1]- 1]);
-	        	else if(swapIndexArr[1]- 1 == i)
-	        		temp += (arr[swapIndexArr[0]-1]);
-	        	else
-	        		temp += (arr[i]);
-	        }
-	        System.out.println(temp);
-	        max = Math.max(max, Integer.parseInt(temp));
-	        if(cnt != swapCnt)
-	        	combination(0, 0, temp.toCharArray(), cnt+1);
+	
+	private static void combination(int index, int cnt) {
+	    if (cnt == swapCnt) {
+	        max = Math.max(max, getValue(arr));
 	        return;
 	    }
 
-	    for (int i = before + 1; i <= strLen; i++) {
-	    	swapIndexArr[index] = i;
-	        combination(i, index + 1, arr, cnt);
+	    for (int i = index; i < strLen; i++) {
+	    	for(int j = i +1; j < strLen; j++) {
+	    		if(isDecrease(index) || arr[i] <= arr[j]) {
+			    	swap(i, j);
+			        combination(index, cnt+1);
+			        swap(i, j);
+	    		}
+	    	}
 	    }
+	}
+	
+	public static boolean isDecrease(int index) {
+		for(int i = index + 1 ; i < strLen; i++) {
+			if(arr[i] > arr[i-1])
+				return false;
+		}
+		return true;
 	}
 	
 	public static int getValue(char[] arr) {
