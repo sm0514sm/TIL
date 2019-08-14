@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 public class __templete_brbw {
 			//SW_Expert는 Solution
 	public static void main(String[] args) throws IOException {
-//		System.setIn(new FileInputStream(".txt"));
+//		System.setIn(new FileInputStream("rsc/_SW_Expert_.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 //		StringTokenizer st = null;
