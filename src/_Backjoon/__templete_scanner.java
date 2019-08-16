@@ -1,9 +1,10 @@
 package _Backjoon;
 import java.util.Scanner;
 
-public class __templete {
-			//백준은 Main
+public class __templete_scanner {
+			//SW_Expert는 Solution
 	public static void main(String[] args) {
+//		System.setIn(new FileInputStream(".txt"));
 		Scanner sc = new Scanner(System.in);
 		for (int test_case = 1, T = sc.nextInt(); test_case <= T; test_case++) {
 			int answer = 0;
@@ -16,5 +17,4 @@ public class __templete {
 		}
 		sc.close();
 	}
-
 }
