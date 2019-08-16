@@ -4,20 +4,30 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
-public class _1974_스도쿠검증_아직안품 {
+public class _1966_숫자를정렬하자 {
 			//SW_Expert는 Solution
 	public static void main(String[] args) throws IOException {
 //		System.setIn(new FileInputStream("rsc/_SW_Expert_.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//		StringTokenizer st = null;
+		StringTokenizer st = null;
 		for (int test_case = 1, T = Integer.parseInt(br.readLine()); test_case <= T; test_case++) {
 			int answer = 0;
-//			st = new StringTokenizer(br.readLine());
+			int N = Integer.parseInt(br.readLine());
+			int arr[] = new int[N];
+			st = new StringTokenizer(br.readLine());
+			for(int i = 0; i< N; i++)
+				arr[i] = Integer.parseInt(st.nextToken());
+			Arrays.sort(arr);
 			
-			
-			bw.write(String.format("#%d %d\n", test_case, answer));
+			bw.write(String.format("#%d ", test_case));
+			for(int i = 0; i< N; i++) {
+				bw.write(arr[i] + " ");
+			}
+			bw.write("\n");
 			bw.flush();
 		}
 	}
