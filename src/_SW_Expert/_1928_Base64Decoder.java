@@ -15,9 +15,10 @@ public class _1928_Base64Decoder {
 			int answer = 0;
 			byte[] buf;
 			String text = br.readLine();
+			byte[] byteText = text.getBytes();
 			buf = new byte[3];
 			for(int i = 0; i < text.length(); i++) {
-				buf[i%3] = (byte) text.charAt(i);
+				buf[i%3] = byteText[i];
 				if(i % 3 == 2) {
 					System.out.print(buf[i%3-2] >>> 2);
 					System.out.print(" ");

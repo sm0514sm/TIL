@@ -20,7 +20,7 @@ public class _1244_최대상금 {
 			swapCnt = sc.nextInt();
 			arr = temp.toCharArray();
 			
-			max = Math.max(max, getValue(arr));
+			max = 0;
 			combination(0, 0);
 			answer = max;
 			System.out.printf("#%d %d\n", test_case, answer);
