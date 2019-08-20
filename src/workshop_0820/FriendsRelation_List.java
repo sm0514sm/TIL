@@ -34,6 +34,7 @@ public class FriendsRelation_List {
 	static boolean[] visited;
 	static int count, max;
 	static boolean finded;
+	static char lastChar;
 
 	public static void main(String[] args) throws FileNotFoundException {
 		System.setIn(new FileInputStream("rsc/graph_input.txt"));
@@ -56,8 +57,9 @@ public class FriendsRelation_List {
 		System.out.println("\nworkshop 개수 : " + max);
 		
 		visited = new boolean[N];
+		lastChar = ' ';
 		bfs(0);
-		System.out.println("\nhomework 젤 늦는애 : " + count);
+		System.out.println("\nhomework 젤 늦는애 : " + lastChar);
 		sc.close();
 	}
 
@@ -83,17 +85,16 @@ public class FriendsRelation_List {
 		while(!Q.isEmpty()) {
 			Node temp = Q.poll();
 			
-			while(temp != null) {
+			while(temp != null) {	// 해당 노드가 갈 수 있는 모든 노드들 Q에 넣기
 				if(!visited[temp.value - 'A']) {
 					visited[temp.value - 'A'] = true;
-					System.out.print(temp.value + " ");
-					Q.offer(adjList[temp.link.value - 'A']);
+					lastChar = temp.value;
+					System.out.print(lastChar + " ");
+					if(temp.link != null)
+						Q.offer(adjList[temp.link.value - 'A']);
 				}
 				temp = temp.link;
 			}
 		}
-		
 	}
-
-
 }
