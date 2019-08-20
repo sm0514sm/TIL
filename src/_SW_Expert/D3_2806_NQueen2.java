@@ -24,12 +24,9 @@ public class D3_2806_NQueen2 {
 
 	private static void perm(int index) {
 		if (N == index) {
-			for(int i = 0; i < N; i++) {
-				for(int j = i + 1; j < N; j++)
-					if(order[i] + (j-i) == order[j])
-						return;
-				for(int j = i -1; j >= 0; j--)
-					if(order[i] + (i-j) == order[j])
+			for (int i = 0; i < N; i++) {
+				for (int j = i + 1; j < N; j++)
+					if (Math.abs(order[i] - order[j]) == Math.abs(j - i))
 						return;
 			}
 			total++;

@@ -54,7 +54,6 @@ public class D3_2806_NQueen {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		for (int test_case = 1, T = sc.nextInt(); test_case <= T; test_case++) {
-			int answer = 0;
 			total = 0;
 			N = sc.nextInt();
 			box = new int[N][N];

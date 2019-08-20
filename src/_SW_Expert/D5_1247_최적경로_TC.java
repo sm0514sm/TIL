@@ -1,3 +1,4 @@
+// 쌤의 풀이
 package _SW_Expert;
 
 import java.io.BufferedReader;
@@ -8,7 +9,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class D5_1247_최적경로 {
+public class D5_1247_최적경로_TC {
 	static class Location {
 		int x, y, index;
 
@@ -37,7 +38,7 @@ public class D5_1247_최적경로 {
 		for (int test_case = 1, T = Integer.parseInt(br.readLine()); test_case <= T; test_case++) {
 			N = Integer.parseInt(br.readLine());
 			st = new StringTokenizer(br.readLine());
-			min = 100000;
+			min = Integer.MAX_VALUE;
 			order = new int[N];
 			start = new Location(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), -1);
 			end = new Location(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), -1);
@@ -47,36 +48,31 @@ public class D5_1247_최적경로 {
 				customers[i] = new Location(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), i);
 			}
 			/*--- 데이터 입력 완료 ---*/
-			permutation(0);
+			go(0, start.x, start.y, 0, 0);
 
 			bw.write(String.format("#%d %d\n", test_case, min));
 			bw.flush();
 		}
 	}
+//	bx, by는 이전에 들린 곳 
+	private static void go(int count, int bx, int by, int visited, int result) {
+		if(result >= min)	return;
+		if(count == N) {
+			result += Math.abs(end.x - bx) + Math.abs(end.y - by);
+			if(result < min)	min = result;
+			return;
+		}
+		for (int i = 0; i < N; i++) {
+			if((visited & 1 << i) == 0) {	// 방문하지 않은 고객집
+				go(count + 1, customers[i].x, customers[i].y,
+						visited | 1 << i,
+						result + Math.abs(customers[i].x - bx) + Math.abs(customers[i].y - by));	// 순서가 여기에 적용됨
+			}
+		}
+	}
 
 	private static int getDistance(Location from, Location to) {
 		return Math.abs(from.x - to.x) + Math.abs(from.y - to.y);
-	}
-
-	public static void permutation(int index) {
-		if (N == index) {
-			int sum = getDistance(start, customers[order[0]]);
-			for (int i = 0; i < N - 1; i++) {
-				if (sum >= min)
-					return;
-				sum += getDistance(customers[order[i]], customers[order[i + 1]]);
-			}
-			sum += getDistance(end, customers[order[N - 1]]);
-			if (sum >= min)
-				return;
-			min = Math.min(min, sum);
-			return;
-		}
-		for (int i = index; i < N; i++) {
-			swap(index, i);
-			permutation(index + 1);
-			swap(index, i);
-		}
 	}
 
 	public static void swap(int i, int j) {
