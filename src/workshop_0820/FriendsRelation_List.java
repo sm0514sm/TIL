@@ -82,16 +82,16 @@ public class FriendsRelation_List {
 		visited[current] = true;
 		Queue<Node> Q = new LinkedList<Node>();
 		Q.offer(adjList[current]);
+		System.out.print((char)(current + 'A') + " ");
 		while(!Q.isEmpty()) {
 			Node temp = Q.poll();
 			
 			while(temp != null) {	// 해당 노드가 갈 수 있는 모든 노드들 Q에 넣기
 				if(!visited[temp.value - 'A']) {
 					visited[temp.value - 'A'] = true;
+					Q.offer(adjList[temp.value - 'A']);
 					lastChar = temp.value;
 					System.out.print(lastChar + " ");
-					if(temp.link != null)
-						Q.offer(adjList[temp.link.value - 'A']);
 				}
 				temp = temp.link;
 			}
