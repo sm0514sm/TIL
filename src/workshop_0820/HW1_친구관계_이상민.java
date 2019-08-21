@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class FriendsRelation_List {
+public class HW1_친구관계_이상민 {
 
 	static class Node {
 		char value;

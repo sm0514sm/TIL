@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Permutation_Combination_Subset {
 	static int[] array = { 1, 2, 3, 4, 5, 6, 7 };
 	static int[] numbers;
-	static int N, R;
+	static int N, R, num;
 
 	public static void main(String[] args) {
 		N = 7;
@@ -29,8 +29,13 @@ public class Permutation_Combination_Subset {
 		combination_before(-1, 0);
 
 		/* Subset */
+		num = 0;
 		subset_while();
-		subset_loop();
+		System.out.println("num : " + num);
+		
+		num = 0;
+		subset_loop(0, 0);
+		System.out.println("num : " + num);
 	}
 
 	private static void permutation_flag(int index, int flag) {
@@ -92,11 +97,28 @@ public class Permutation_Combination_Subset {
 	}
 
 	private static void subset_while() {
-		
+		int loopCnt = 1 << N;
+		for(int i = 0; i < loopCnt; i++) {
+			for(int j = 0; j < N; j++) {
+				if((i & 1 << j) == 0) continue;
+				System.out.print(array[j] + " ");
+			}
+			System.out.println();
+			num++;
+		}
 	}
 
-	private static void subset_loop() {
-		
+	private static void subset_loop(int count, int flag) {
+		if(count == N) {
+			for(int i = 0; i < N ; i++) {
+				if((flag & 1 << i) == 0) continue;
+				System.out.print(array[i] + " ");
+			}
+			System.out.println();
+			num++;
+			return;
+		}
+		subset_loop(count + 1, flag | 1 << count);
+		subset_loop(count + 1, flag);
 	}
-
 }
