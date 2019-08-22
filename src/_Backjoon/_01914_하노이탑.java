@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 import java.math.BigInteger;
 import java.util.Scanner;
 
-public class _1914_하노이탑 {
+public class _01914_하노이탑 {
 	static BufferedWriter bw ;
     static int top;
 	public static void hanoi(int from, int temp, int goal, int top) throws IOException {

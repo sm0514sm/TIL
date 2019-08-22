@@ -3,9 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
 
 public class D3_1215_회문1 {
 			//SW_Expert는 Solution
@@ -14,27 +12,52 @@ public class D3_1215_회문1 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		for (int test_case = 1; test_case <= 10; test_case++) {
 			int answer = 0;
-			Queue<Character> Q = new LinkedList<Character>();
+			ArrayList<Character> list = new ArrayList<Character>();
 			int len = Integer.parseInt(br.readLine());
 			char[][] arr = new char[8][8];
 			for(int i = 0; i < 8; i++)
 				arr[i] = br.readLine().toCharArray();
+			//가로검사
 			for(int i = 0; i < 8; i++) {
-				Q.clear();
-				char lastOffer = ' ';
+				list.clear();
+				next_word:
 				for(int j = 0; j < 8; j++) {
-					if(Q.size() != len) {
-						Q.offer(arr[i][j]);
-						lastOffer = arr[i][j];
+					if(list.size() != len) {
+						list.add(arr[i][j]);
+					}
+					if(list.size() == len) {
+						for(int k = 0; k < len/2; k++)
+							if(list.get(k) != list.get(len-1-k)) {
+								list.remove(0);
+								continue next_word;
+							}
+					}
+					j--;
+					list.remove(0);
+					answer++;
+				}
+			}
+			//세로검사
+			for(int i = 0; i < 8; i++) {
+				list.clear();
+				next_word:
+				for(int j = 0; j < 8; j++) {
+					if(list.size() != len) {
+						list.add(arr[j][i]);
 						continue;
 					}
 					// len과 같다면
-					for(int k = 0; k < len/2; k++) {
-//						if(Q.)
-					}
+					for(int k = 0; k < len/2; k++)
+						if(list.get(k) != list.get(len-1-k)) {
+							list.remove(0);
+							j--;
+							continue next_word;
+						}
+					list.remove(0);
+					answer++;
 				}
 			}
-			
+			System.out.println("#" + test_case + " " + answer);
 		}
 	}
 }

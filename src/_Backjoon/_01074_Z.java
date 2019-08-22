@@ -2,7 +2,7 @@ package _Backjoon;
 
 import java.util.Scanner;
 
-public class _1074_Z {
+public class _01074_Z {
 	public static int count = 0;
 	public static int answer;
 	public static int r, c;

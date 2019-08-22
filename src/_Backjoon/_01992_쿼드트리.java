@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class _1992_쿼드트리 {
+public class _01992_쿼드트리 {
 	static int[][] arr = null;
 
 	// 백준은 Main
