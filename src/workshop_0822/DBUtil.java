@@ -7,9 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBUtil {
-	static String url = "jdbc:mysql://localhost:3306/ssafydb?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8";
-	static String user= "ssafy";
-	static String pw  = "ssafy";
+	static String url = "jdbc:mysql://localhost:3306/dbtest?serverTimezone=UTC&useUniCode=yes&characterEncoding=UTF-8";
+	static String user= "root";
+	static String pw  = "123123";
 	static {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
