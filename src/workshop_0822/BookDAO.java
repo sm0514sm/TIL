@@ -2,6 +2,7 @@ package workshop_0822;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -60,6 +61,7 @@ public class BookDAO {
 			String sql = " delete from Book where isbn = ? ";
 			int ind = 1;
 			stmt.setString(ind++, isbn);
+			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -70,6 +72,23 @@ public class BookDAO {
 	}
 	
 	public Book findBook(String isbn) {
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			con = DBUtil.getConnection();
+			String sql = " delete from Book where isbn = ? ";
+			int ind = 1;
+			stmt.setString(ind++, isbn);
+			rs = stmt.executeQuery();
+			while(rs.next())
+				return new Book(rs.getString(columnIndex), title, author, publisher, price, description)
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBUtil.close(stmt);
+			DBUtil.close(con);
+		}
 		return null;
 	}
 	
