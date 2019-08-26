@@ -45,7 +45,7 @@ public class Permutation_Combination_Subset {
 			System.out.println();
 			return;
 		}
-		for (int i = index; i < N; i++) {
+		for (int i = 0; i < N; i++) {
 			if ((flag & 1 << i) != 0)
 				continue;
 			numbers[index] = array[i];
