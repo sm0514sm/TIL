@@ -90,9 +90,9 @@ public class Permutation_Combination_Subset {
 			System.out.println(Arrays.toString(Arrays.copyOf(numbers, R)));
 			return;
 		}
-		for(int i = before + 1; i < N; i++) {
+		for(int i = before; i < N; i++) {
 			numbers[index] = array[i];
-			combination_before(i, index+1);
+			combination_before(i + 1, index+1);
 		}
 	}
 
