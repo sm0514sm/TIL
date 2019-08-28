@@ -1,9 +1,5 @@
 package ___Essential;
 
-import java.util.Arrays;
-
-import com.sun.xml.internal.ws.encoding.SwACodec;
-
 public class Permutation_Combination_Subset_study {
 	static int[] array = { 1, 2, 3, 4, 5, 6, 7 };
 	static int[] numbers;
@@ -49,29 +45,9 @@ public class Permutation_Combination_Subset_study {
 	}
 
 	private static void permutation_flag(int index, int flag) {
-		if(index == R) {
-			num++;
-			System.out.println(Arrays.toString(numbers));
-			return;
-		}
-		for(int i = 0; i < N; i++) {
-			if((flag & 1 << i) != 0) continue;
-			numbers[index] = array[i];
-			permutation_flag(index + 1, flag | 1 << i); 
-		}
 	}
 
 	private static void permutation_swap(int index) {
-		if(index == R) {
-			num++;
-			System.out.println(Arrays.toString(Arrays.copyOf(array, R)));
-			return;
-		}
-		for(int i = index; i < N; i++) {
-			swap(i, index);
-			permutation_swap(index+1);
-			swap(i, index);
-		}
 	}
 	
 	private static void swap(int i, int j) {
