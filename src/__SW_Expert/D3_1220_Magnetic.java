@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class _D3_1220_Magnetic {
+public class D3_1220_Magnetic {
 			//SW_Expert는 Solution
 	public static void main(String[] args) throws IOException {
 		System.setIn(new FileInputStream("rsc/_SW_Expert_1220.txt"));

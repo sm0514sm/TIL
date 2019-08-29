@@ -31,10 +31,9 @@ public class D3_1215_회문1 {
 								list.remove(0);
 								continue next_word;
 							}
+						list.remove(0);
+						answer++;
 					}
-					j--;
-					list.remove(0);
-					answer++;
 				}
 			}
 			//세로검사
@@ -44,17 +43,17 @@ public class D3_1215_회문1 {
 				for(int j = 0; j < 8; j++) {
 					if(list.size() != len) {
 						list.add(arr[j][i]);
-						continue;
 					}
 					// len과 같다면
-					for(int k = 0; k < len/2; k++)
-						if(list.get(k) != list.get(len-1-k)) {
-							list.remove(0);
-							j--;
-							continue next_word;
-						}
-					list.remove(0);
-					answer++;
+					if(list.size() == len) {
+						for(int k = 0; k < len/2; k++)
+							if(list.get(k) != list.get(len-1-k)) {
+								list.remove(0);
+								continue next_word;
+							}
+						list.remove(0);
+						answer++;
+					}
 				}
 			}
 			System.out.println("#" + test_case + " " + answer);

@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class test {
+public class 원자로 {
 	static int[][] DIR = {{0, 1}, {0, -1}, {-1, 0}, {1, 0},	//상 하 좌 우
 						  {-1, 1}, {1, -1}, {1, 1}, {-1, -1}};	//좌상 우하 우상 좌하
 	static int[][][] searchDIR = {{{0, 1}, {-1, 1}, {1, 1}}, // 상일때 검사
@@ -268,7 +268,7 @@ public class test {
 				list.add(new ATOM(x, y, dir, energy, i+1));
 				MAP[x][y] = i+1;
 			}
-			for(int i = 0; i < N; i++) {
+			for(int i = 0; i < N ; i++) {
 				ATOM temp = list.get(i);
 				if(temp.energy == -1) continue;
 				ArrayList<ATOM> getAtoms = null;

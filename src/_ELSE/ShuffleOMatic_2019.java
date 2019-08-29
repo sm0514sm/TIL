@@ -73,7 +73,7 @@ public class ShuffleOMatic_2019 {
 		int size = N*2-2;
 		int[] tempArr = new int[size];
 		
-		for(int i = 0; i < N ;i+=2)	tempArr[i+index] = left[i/2];
+		for(int i = 0; i < N ;i+=2)	tempArr[i+index] 		= left[i/2];
 		for(int i = 0; i < N ;i+=2)	tempArr[size/2-index+i] = right[i/2];
 		
 		int idx = 0;
