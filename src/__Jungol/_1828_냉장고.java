@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 
 public class _1828_냉장고 {
@@ -46,10 +47,8 @@ public class _1828_냉장고 {
 		Arrays.sort(cs);
 		
 		int low = cs[0].x;
-		int high = cs[0].y;
 		
 		for(int i = 1; i < N; i++) {
-			high = cs[i].y;
 			if(cs[i].y < low) {
 				cnt++;
 				low = cs[i].x;
