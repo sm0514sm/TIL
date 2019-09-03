@@ -8,7 +8,6 @@ import java.io.OutputStreamWriter;
 //Main
 public class __templete_brbw {
 	public static void main(String[] args) throws IOException {
-//		System.setIn(new FileInputStream("rsc/_BJ_.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 //		StringTokenizer st = null;
