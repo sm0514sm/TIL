@@ -26,8 +26,7 @@ public class _2634_사냥꾼 {
 			int left = 0;
 			int right = M - 1;
 			int mid = M/2;
-			while(left <= right) {
-				if(left == right) break;
+			while(left < right) {
 				if(gunners[mid] == x) return mid;
 				if(temp > Math.abs(gunners[mid] - x)) {
 					temp = Math.abs(gunners[mid] - x);
@@ -42,7 +41,7 @@ public class _2634_사냥꾼 {
 					mid = (left + right)/2;
 				}
 			}
-			if(gunners[mid] - x > temp)
+			if(Math.abs(gunners[mid] - x) > temp)
 				mid = tempIdx;
 			return mid;
 		}
@@ -54,9 +53,11 @@ public class _2634_사냥꾼 {
 				return false;
 		}
 	}
+
 	static long[] gunners;
-	static int M,N;
+	static int M, N;
 	static long L;
+
 	public static void main(String[] args) throws IOException {
 		ArrayList<ANIMAL> liveAnimals = new ArrayList<>();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -66,9 +67,8 @@ public class _2634_사냥꾼 {
 		L = Integer.parseInt(st.nextToken()); 	// 사정거리
 		gunners = new long[M];
 		st = new StringTokenizer(br.readLine());
-		for (int i = 0; i < M; i++) {
+		for (int i = 0; i < M; i++)
 			gunners[i] = Integer.parseInt(st.nextToken()); 
-		}
 		Arrays.sort(gunners);
 		for (int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -76,9 +76,6 @@ public class _2634_사냥꾼 {
 			if(ani.iCanLive())
 				liveAnimals.add(ani);
 		}
-		
-		
-		System.out.println(N-liveAnimals.size());
+		System.out.println(N - liveAnimals.size());
 	}
-
 }
