@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class D3_1230_암호문 {
+public class D3_1229_암호문2 {
 			//SW_Expert는 Solution
 	public static void main(String[] args) throws IOException {
 //		System.setIn(new FileInputStream("rsc/_SW_Expert_.txt"));

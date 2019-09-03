@@ -34,6 +34,7 @@ public class _1863_종교 {
 				count++;
 			}
 		}
+		
 		System.out.println(count);
 	}
 
@@ -43,6 +44,7 @@ public class _1863_종교 {
 		int bRoot = find(b);
 		if(aRoot != bRoot) {		// 3. Union Set : 두 노드의 집합이 다르면 합치기
 			parents[bRoot] = aRoot;
+			parents[aRoot]--;
 			return true;
 		}
 		return false;

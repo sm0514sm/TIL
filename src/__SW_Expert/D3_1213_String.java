@@ -5,18 +5,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class __templete_brbw {
+public class D3_1213_String {
 			//SW_Expert는 Solution
 	public static void main(String[] args) throws IOException {
-//		System.setIn(new FileInputStream("rsc/_SW_Expert_.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-//		StringTokenizer st = null;
-		for (int test_case = 1, T = Integer.parseInt(br.readLine()); test_case <= T; test_case++) {
+		for (int test_case = 1; test_case <= 10; test_case++) {
+			br.readLine();
 			int answer = 0;
-//			st = new StringTokenizer(br.readLine());
-			
-			
+			String find = br.readLine();
+			String text = br.readLine();
+			text = text.replaceAll(find, "*");
+			for (int i = 0; i < text.length(); i++) {
+				if(text.charAt(i) == '*')
+					answer++;
+			}
 			bw.append(String.format("#%d %d\n", test_case, answer));
 			bw.flush();
 		}
