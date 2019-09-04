@@ -14,7 +14,7 @@ public class __templete_brbw {
 		int answer = 0;
 //		st = new StringTokenizer(br.readLine());
 		
-		bw.write(String.format("#%d \n", answer));
+		bw.write(String.format("%d \n", answer));
 		bw.flush();
 	}
 }

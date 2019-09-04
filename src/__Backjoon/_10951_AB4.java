@@ -2,16 +2,14 @@ package __Backjoon;
 import java.util.Scanner;
 
 //Main
-public class __templete_scanner {
+public class _10951_AB4 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int answer = 0;
-		
-		
-		
-		
-		
-		System.out.printf("%d\n", answer);
+		while(sc.hasNext()) {
+			int a = sc.nextInt();
+			int b = sc.nextInt();
+			System.out.printf("%d\n", a+b);
+		}
 		sc.close();
 	}
 }
