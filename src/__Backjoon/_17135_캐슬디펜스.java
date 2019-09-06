@@ -64,43 +64,30 @@ public class _17135_캐슬디펜스 {
 	}
 	// 가장 가까운 적 쏘기 
 	// 가장 가까운 적이 여럿이면 왼쪽에 쏘기임
-	// 나는 지금 가장 왼쪽에 있는 애부터 쏘기로 되어있음
 	private static void shot() {
 		next: for (int i = 0; i < 3; i++) {
-			// 왼쪽
-			for (int j = D - 1; j > 0; j--) {
-				for (int k = 1; k <= D - j; k++) {
-					if (arr[N - k + 100][selected[i] - j] > 1) {
-						continue;
-					}
-					else if (arr[N - k + 100][selected[i] - j] == 1) {
-						arr[N - k + 100][selected[i] - j]++;
-						continue next;
-					}
-				}
-			}
-
-			// 중앙
 			for (int j = 1; j <= D; j++) {
-				if (arr[N - j + 100][selected[i]] > 1) {
-					continue;
-				}
-				else if (arr[N - j + 100][selected[i]] == 1) {
-					arr[N - j + 100][selected[i]]++;
-					continue next;
-				}
-			}
-
-			// 오른쪽
-			for (int j = 1; j < D; j++) {
-				for (int k = 1; k <= D - j; k++) {
-					if (arr[N - k + 100][selected[i] + j] > 1) {
-						continue;
-					}
-					else if (arr[N - k + 100][selected[i] + j] == 1) {
-						arr[N - k + 100][selected[i] + j]++;
+				int startR = N + 100 - 1;
+				int startC = selected[i] - j + 1;
+				// 왼쪽
+				for (int k = 1; k < j; k++) {
+					if(arr[startR][startC] >= 1) {
+						arr[startR][startC]++;
 						continue next;
 					}
+					startR--;
+					startC++;
+				}
+				startR = N + 100 - j;
+				startC = selected[i];
+				// 위 오른쪽
+				for (int k = 0; k < j; k++) {
+					if(arr[startR][startC] >= 1) {
+						arr[startR][startC]++;
+						continue next;
+					}
+					startR++;
+					startC++;
 				}
 			}
 		}
