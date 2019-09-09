@@ -40,8 +40,6 @@ public class DisjointSetTest {
 	private static int find(int a) {
 		if (parents[a] < 0) return a;	// Root 노드에 도달하면 반환되기 시작함
 		// Root노드가 아니면 부모노드 따라가서 루트노드 알아와 지정
-		
 		return parents[a] = find(parents[a]);	// Path Compression 
 	}
-
 }

@@ -3,12 +3,12 @@ package ___Essential;
 import java.util.Arrays;
 
 public class Permutation_Combination_Subset {
-	static int[] array = { 1, 2, 3, 4, 5, 6, 7 };
+	static int[] array;
 	static int[] numbers;
 	static int N, R, num;
 
 	public static void main(String[] args) {
-		N = 7;
+		N = 5;
 		array = new int[N];
 		for (int i = 0; i < N; i++)
 			array[i] = i + 1;
@@ -17,25 +17,25 @@ public class Permutation_Combination_Subset {
 
 //		/* Permutation */
 //		permutation_flag(0, 0);
-//		permutation_swap(0);
+		permutation_swap(0);
 //		do {
 //			System.out.println(Arrays.toString(array));
 //		} while (nextPermutation());
 
-		/* Combination */
-		for (int i = 0; i < N; i++)
-			array[i] = i + 1;
-		numbers = new int[N];
-		combination_before(-1, 0);
-
-		/* Subset */
-		num = 0;
-		subset_while();
-		System.out.println("num : " + num);
-		
-		num = 0;
-		subset_loop(0, 0);
-		System.out.println("num : " + num);
+//		/* Combination */
+//		for (int i = 0; i < N; i++)
+//			array[i] = i + 1;
+//		numbers = new int[N];
+//		combination_before(-1, 0);
+//
+//		/* Subset */
+//		num = 0;
+//		subset_while();
+//		System.out.println("num : " + num);
+//		
+//		num = 0;
+//		subset_loop(0, 0);
+//		System.out.println("num : " + num);
 	}
 
 	private static void permutation_flag(int index, int flag) {
@@ -55,7 +55,7 @@ public class Permutation_Combination_Subset {
 
 	private static void permutation_swap(int index) {
 		if (index == R) {
-			System.out.println(Arrays.toString(Arrays.copyOf(array, N)));
+			System.out.println(Arrays.toString(Arrays.copyOf(array, R)));
 			return;
 		}
 		for (int i = index; i < N; i++) {
