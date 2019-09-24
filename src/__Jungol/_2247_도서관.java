@@ -1,9 +1,7 @@
 package __Jungol;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
@@ -24,12 +22,6 @@ public class _2247_도서관 {
 			val = val == 0 ? Integer.compare(end, o.end) : val;
 			return val;
 		}
-
-		@Override
-		public String toString() {
-			return "PEOPLE [sta=" + sta + ", end=" + end + "]";
-		}
-		
 	}
 	
 	public static void main(String[] args) throws IOException {
