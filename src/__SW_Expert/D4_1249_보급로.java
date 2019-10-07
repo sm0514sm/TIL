@@ -16,7 +16,6 @@ public class D4_1249_보급로 {
 		System.setIn(new FileInputStream("rsc/_SW_Expert_1249.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		for (int test_case = 1, T = Integer.parseInt(br.readLine()); test_case <= T; test_case++) {
-			int answer = 0;
 			N = Integer.parseInt(br.readLine());
 			map = new int[N][N];
 			dp = new int[N][N];
@@ -30,16 +29,20 @@ public class D4_1249_보급로 {
 			Queue<int[]> Q = new LinkedList<int[]>();
 			Q.add(new int[] {0, 0});
 			dp[0][0] = map[0][0];
-//			dp[0][1] = map[0][1];
-//			dp[1][0] = map[1][0];
+			int mintime = Integer.MAX_VALUE;
 			while(!Q.isEmpty()) {
 				int[] pop = Q.poll();
+				if(pop[0] == N - 1 && pop[1] == N - 1) {
+					mintime = Math.min(mintime, dp[pop[0]][pop[1]]);
+					break;
+				}
 				
 				for (int i = 0; i < 4; i++) {
 					int nr = pop[0] + DIR[i][0];
 					int nc = pop[1] + DIR[i][1];
 					if(nr >= N || nc >= N || nr < 0 || nc < 0) continue;
-					if(dp[pop[0]][pop[1]] + map[nr][nc] < dp[nr][nc]) {
+					if(dp[pop[0]][pop[1]] + map[nr][nc] < dp[nr][nc] &&
+							dp[pop[0]][pop[1]] + map[nr][nc] < mintime) {
 						dp[nr][nc] = dp[pop[0]][pop[1]] + map[nr][nc];
 						Q.add(new int[] {nr, nc});
 					}
