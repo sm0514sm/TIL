@@ -17,7 +17,7 @@ public class Permutation_Combination_Subset {
 
 //		/* Permutation */
 //		permutation_flag(0, 0);
-		permutation_swap(0);
+//		permutation_swap(0);
 //		do {
 //			System.out.println(Arrays.toString(array));
 //		} while (nextPermutation());
@@ -28,11 +28,11 @@ public class Permutation_Combination_Subset {
 //		numbers = new int[N];
 //		combination_before(-1, 0);
 //
-//		/* Subset */
-//		num = 0;
-//		subset_while();
-//		System.out.println("num : " + num);
-//		
+		/* Subset */
+		num = 0;
+		subset_while();
+		System.out.println("num : " + num);
+		
 //		num = 0;
 //		subset_loop(0, 0);
 //		System.out.println("num : " + num);

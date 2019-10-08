@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-public class PrimTest2 {
+public class 최소비용신장트리_PrimTest {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,7 +20,7 @@ public class PrimTest2 {
 			for (int j = 0; j < N; j++) {
 				adjMatrix[i][j] = Integer.parseInt(st.nextToken());
 			}
-		} // i노드에서 j노드들까지 비용 저장
+		} // i노드에서 j노드들까지 비용 저장 
 
 		int cnt = 0, result = 0;
 		PriorityQueue<Vertex> Q = new PriorityQueue<Vertex>();
