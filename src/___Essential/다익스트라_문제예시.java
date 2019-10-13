@@ -2,6 +2,7 @@ package ___Essential;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
@@ -20,7 +21,6 @@ public class 다익스트라_문제예시 {
 	
 	static class Edge{
 		int from, to, time;
-
 		public Edge(int from, int to, int time) {
 			this.from = from;
 			this.to = to;
@@ -44,6 +44,7 @@ public class 다익스트라_문제예시 {
 								Integer.parseInt(st.nextToken()) - 1, 
 								Integer.parseInt(st.nextToken()));
 		}
+		
 		distance[0] = 0;
 		if(goNegetiveCycle()){
 			System.out.println(-1);
@@ -68,6 +69,7 @@ public class 다익스트라_문제예시 {
 				}
 			}
 		}
+		
 		return false;
 	}
 }
