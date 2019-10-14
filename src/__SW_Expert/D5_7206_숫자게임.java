@@ -1,5 +1,6 @@
 package __SW_Expert;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class D5_7206_숫자게임 {
 	static int[] count = new int[10000];
 
 	// SW_Expert는 Solution
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		Scanner sc = new Scanner(System.in);
 		for (int test_case = 1, T = sc.nextInt(); test_case <= T; test_case++) {
@@ -17,7 +18,6 @@ public class D5_7206_숫자게임 {
 			Nstring = sc.next();
 			doDivide(Nstring, 0);
 			
-
 			System.out.printf("#%d %d\n", test_case, cnt);
 		}
 		sc.close();
@@ -32,6 +32,12 @@ public class D5_7206_숫자게임 {
 			return;
 		}
 		if(number.length() <= 3 && cut + 9 <= cnt) {
+			return;
+		}
+		if(number.length() <= 4 && cut + 19 <= cnt) {
+			return;
+		}
+		if(number.length() <= 5 && cut + 30 <= cnt) {
 			return;
 		}
 		int templne = number.length()-1;
