@@ -7,21 +7,21 @@ import java.util.Arrays;
 // Subset			= 2^n  
 
 public class _01_순열_조합_부분집합 {
-	static char[] array = { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
+	static char[] array = { 'A', 'B', 'C', 'D', 'E'};
 	static char[] array2 = { 'A', 'B', 'C', 'D'};
 	static int[] numbers;
 	static int N, N2, R, num;
 
 	public static void main(String[] args) {
-		N = 7;
+		N = 5;
 		N2 = 4;
 		R = 3; // 7P3 or 7C3
 		numbers = new int[R];
 
-//		/* Permutation */
-//		num = 0;
-//		permutation_flag(0, 0);
-//		System.out.println(num);
+		/* Permutation */
+		num = 0;
+		permutation_flag(0, 0);
+		System.out.println(num);
 //		
 //		num = 0;
 //		permutation_swap(0);
@@ -37,10 +37,10 @@ public class _01_순열_조합_부분집합 {
 //		combination_before(0, 0);
 //		System.out.println(num);
 //
-		/* Subset */
-		num = 0;
-		subset_while();
-		System.out.println("num : " + num);
+//		/* Subset */
+//		num = 0;
+//		subset_while();
+//		System.out.println("num : " + num);
 	}
 
 	private static void permutation_flag(int index, int flag) {
