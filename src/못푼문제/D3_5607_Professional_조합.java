@@ -1,4 +1,4 @@
-package __SW_Expert;
+package 못푼문제;
 import java.util.Scanner;
 
 public class D3_5607_Professional_조합 {
