@@ -10,15 +10,12 @@ public class __templete_brbw {
 	public static void main(String[] args) throws IOException {
 //		System.setIn(new FileInputStream("rsc/_SW_Expert_.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 //		StringTokenizer st = null;
 		for (int test_case = 1, T = Integer.parseInt(br.readLine()); test_case <= T; test_case++) {
 			int answer = 0;
 //			st = new StringTokenizer(br.readLine());
 			
 			
-			bw.append(String.format("#%d %d\n", test_case, answer));
-			bw.flush();
 		}
 	}
 }
