@@ -34,16 +34,34 @@ public class D4_3812_호중이의큐브색칠2 {
 				oneAns[(Math.abs(x-A)+Math.abs(B-B)) % N]++;
 				realAns[(Math.abs(x-A)+Math.abs(B-B)) % N]++;
 			}
+/*
+1
+5 5 5 0 0 0 7
+#1 1 9 25 25 25 24 16 
+1
+5 5 5 0 0 0 7
+#1 19 18 16 16 18 19 19
+ * */
+			
 			// 중앙 위 구하기
-			for (int i = B+1; i < Y; i++) {
-				int cnt = 1;
+			int mul = 0;
+			int temp1 = (Y - (B+1))/ N;
+			int temp2 = (B)/ N;
+			mul = temp1 + temp2;
+			for (int j = 0; j < N; j++) {
+				realAns[j] += (mul)*N * realAns[j];
+			}
+			int cnt = 0;
+			for (int i = temp1 * N + B+1; i < Y; i++) {
+				cnt++;
 				for (int j = 0; j < N; j++) {
-					realAns[(j + cnt) % N] += oneAns[j];
+					realAns[(j+cnt) % N] += oneAns[j];
 				}
 			}
 			// 중앙 아래 구하기
-			for (int i = B - 1; i >= 0; i--) {
-				int cnt = 1;
+			cnt = 0;
+			for (int i = B-1 - temp2 * N; i >= 0; i--) {
+				cnt++;
 				for (int j = 0; j < N; j++) {
 					realAns[(j+cnt) % N] += oneAns[j];
 				}
@@ -51,15 +69,24 @@ public class D4_3812_호중이의큐브색칠2 {
 			oneAns = realAns.clone();
 			
 			// 중앙 위 구하기
-			for (int i = C+1; i < Z; i++) {
-				int cnt = 1;
+			mul = 0;
+			temp1 = (Z - (C+1))/ N;
+			temp2 = (C)/ N;
+			mul = temp1 + temp2;
+			for (int j = 0; j < N; j++) {
+				realAns[j] += (mul)*N * realAns[j];
+			}
+			cnt = 0;
+			for (int i = temp1 * N + C+1; i < Z; i++) {
+				cnt++;
 				for (int j = 0; j < N; j++) {
 					realAns[(j+cnt) % N] += oneAns[j];
 				}
 			}
 			// 중앙 아래 구하기
-			for (int i = C - 1; i >= 0; i--) {
-				int cnt = 1;
+			cnt = 0;
+			for (int i = C - 1 - temp2 * N; i >= 0; i--) {
+				cnt++;
 				for (int j = 0; j < N; j++) {
 					realAns[(j+cnt) % N] += oneAns[j];
 				}

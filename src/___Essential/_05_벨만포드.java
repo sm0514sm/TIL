@@ -28,6 +28,7 @@ public class _05_벨만포드 {
 	static int[] distance;	// 1번 도시에서 각 도시로 가는 최소시간
 	static Edge[] edges;
 	
+	
 	static class Edge{
 		int from, to, time;
 		public Edge(int from, int to, int time) {

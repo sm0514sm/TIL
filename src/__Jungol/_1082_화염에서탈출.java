@@ -63,7 +63,7 @@ public class _1082_화염에서탈출 {
 			}
 		}
 		Q.add(new int[] {r, c});
-		for (int time = 0; time < 100; time++) {
+		for (int time = 1; time <= 100; time++) {
 //			사람 이동
 			if(doBfs()) {
 				ans = time;
@@ -83,7 +83,7 @@ public class _1082_화염에서탈출 {
 			System.out.println("impossible");
 		}
 		else {
-			System.out.println(ans+1);
+			System.out.println(ans);
 		}
 	}
 
@@ -93,6 +93,7 @@ public class _1082_화염에서탈출 {
 		
 		for (int i = 0; i < size; i++) {
 			int[] pos = Q.poll();
+			if(map[pos[0]][pos[1]] == '*') continue;
 			for (int dir = 0; dir < 4; dir++) {
 				int nr = pos[0] + DIR[dir][0];
 				int nc = pos[1] + DIR[dir][1];

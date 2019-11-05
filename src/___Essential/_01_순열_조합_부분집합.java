@@ -19,13 +19,13 @@ public class _01_순열_조합_부분집합 {
 		numbers = new int[R];
 
 		/* Permutation */
-		num = 0;
-		permutation_flag(0, 0);
-		System.out.println(num);
-//		
 //		num = 0;
-//		permutation_swap(0);
+//		permutation_flag(0, 0);
 //		System.out.println(num);
+//		
+		num = 0;
+		permutation_swap(0);
+		System.out.println(num);
 ////		
 		
 //		do {
@@ -46,14 +46,14 @@ public class _01_순열_조합_부분집합 {
 	private static void permutation_flag(int index, int flag) {
 		if(index == R) {
 			for(int i = 0; i<R ; i++) {
-				System.out.print(array[numbers[i] - 1] + " ");
+				System.out.print(array[numbers[i]] + " ");
 			}
 			System.out.println();
 			num++;
 			return;
 		}
 		
-		for(int i = 1; i <= N; i++) {
+		for(int i = 0; i < N; i++) {
 			if((flag & 1 << i) > 0) continue;
 			numbers[index] = i;
 			permutation_flag(index + 1, flag | 1 << i);
