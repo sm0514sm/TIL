@@ -12,29 +12,8 @@ public class _1082_화염에서탈출 {
 	static int R, C, HomeR, HomeC, r, c;
 	static char[][] map;
 	static int[][] DIR = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-	static ArrayList<Fire> fires;
+	static Queue<int[]> fires;
 	static Queue<int[]> Q;
-	
-	static class Fire{
-		int r, c;
-
-		public Fire(int r, int c) {
-			this.r = r;
-			this.c = c;
-		}
-		
-		public void doFire() {
-			for (int dir = 0; dir < 4; dir++) {
-				int nr = r + DIR[dir][0];
-				int nc = c + DIR[dir][1];
-				if(nr >= R || nc >= C || nr < 0 || nc < 0) continue;
-				if(map[nr][nc] == 'D' || map[nr][nc] == 'X' || map[nr][nc] == '*') continue;
-				map[nr][nc] = '*';
-				fires.add(new Fire(nr, nc));
-			}
-			fires.remove(this);
-		}
-	}
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -43,15 +22,27 @@ public class _1082_화염에서탈출 {
 		R = Integer.parseInt(st.nextToken());
 		C = Integer.parseInt(st.nextToken());
 		Q = new LinkedList<>();
-		fires = new ArrayList<>();
+		fires = new LinkedList<int[]>();
 		map = new char[R][C];
 		int ans = 0;
 		for (int i = 0; i < R; i++) {
 			String str = br.readLine();
 			for (int j = 0; j < C; j++) {
 				map[i][j] = str.charAt(j);
-				if(map[i][j] == '*')
-					fires.add(new Fire(i, j));
+				if(map[i][j] == '*') {
+					boolean possible = false;
+					for (int dir = 0; dir < 4; dir++) {
+						int nr = i + DIR[dir][0];
+						int nc = j + DIR[dir][1];
+						if(nr >= R || nc >= C || nr < 0 || nc < 0) continue;
+						if(map[nr][nc] == '.') {
+							possible = true;
+							break;
+						}
+					}
+					if(possible)
+						fires.offer(new int[] {i, j});
+				}
 				else if(map[i][j] == 'D') {
 					HomeR = i;
 					HomeC = j;
@@ -63,27 +54,40 @@ public class _1082_화염에서탈출 {
 			}
 		}
 		Q.add(new int[] {r, c});
-		for (int time = 1; time <= 100; time++) {
+		for (int time = 1; time <= 10000; time++) {
 //			사람 이동
 			if(doBfs()) {
 				ans = time;
 				break;
 			}
-//				집 도착 확인
+			if(Q.size() == 0) break;
 			
 //			불 번짐
-			int size = fires.size();
-			for (int i = 0; i < size; i++) {
-				Fire fire = fires.get(0);
-				fire.doFire();
-			}
-			
+			doFire();
 		}
 		if(ans == 0) {
 			System.out.println("impossible");
 		}
 		else {
 			System.out.println(ans);
+		}
+	}
+
+	private static void doFire() {
+		int size = fires.size();
+		if(size == 0) return;
+		
+		for (int i = 0; i < size; i++) {
+			int[] pos = fires.poll();
+			for (int dir = 0; dir < 4; dir++) {
+				int nr = pos[0] + DIR[dir][0];
+				int nc = pos[1] + DIR[dir][1];
+				if(nr >= R || nc >= C || nr < 0 || nc < 0) continue;
+				if(map[nr][nc] == 'X' || map[nr][nc] == '*' || map[nr][nc] == 'D') continue;
+				if(map[nr][nc] == 'S') Q.remove(new int[] {nr, nc});
+				map[nr][nc] = '*';
+				fires.offer(new int[] {nr, nc});
+			}
 		}
 	}
 
@@ -98,7 +102,7 @@ public class _1082_화염에서탈출 {
 				int nr = pos[0] + DIR[dir][0];
 				int nc = pos[1] + DIR[dir][1];
 				if(nr >= R || nc >= C || nr < 0 || nc < 0) continue;
-				if(map[nr][nc] == 'X' || map[nr][nc] == '*') continue;
+				if(map[nr][nc] == 'X' || map[nr][nc] == '*' || map[nr][nc] == 'S') continue;
 				if(map[nr][nc] == 'D') return true;
 				map[nr][nc] = 'S';
 				Q.offer(new int[] {nr, nc});
