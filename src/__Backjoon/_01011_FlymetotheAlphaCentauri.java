@@ -1,36 +1,39 @@
 package __Backjoon;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//Main
+// Main
 public class _01011_FlymetotheAlphaCentauri {
-	static int to, min;
+	static long to, min;
+
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = null;
 		int T = Integer.parseInt(br.readLine());
 		for (int i = 0; i < T; i++) {
-			min = 1000000;
+			min = 0;
 			st = new StringTokenizer(br.readLine());
-			int from = Integer.parseInt(st.nextToken());
-			to = Integer.parseInt(st.nextToken());
-			to -= from + 1;
-			doit(0, to, 1);
+			long from = Long.parseLong(st.nextToken());
+			to = Long.parseLong(st.nextToken());
+			to -= from;
+			long mul = (long) Math.sqrt(to);
+
+			while (mul * mul < to) {
+				mul++;
+			}
+			if (mul * mul == to)
+				min = 2 * mul - 1;
+			else {
+				if (((mul * mul) + (mul - 1) * (mul - 1)) / 2 >= to)
+					min = 2 * mul - 2;
+				else
+					min = 2 * mul - 1;
+			}
 			System.out.println(min);
 		}
-		
-	}
-	private static void doit(int move, int remain, int cnt) {
-		if(remain == 0) {
-			min = Math.min(min, cnt);
-			return;
-		}
-		else if(remain < 0) return;
-		for(int i = move - 1; i <= move + 1; i++) {
-			if(i <= 0) continue;
-			doit(i, remain - i, cnt+1);
-		}
+
 	}
 }
