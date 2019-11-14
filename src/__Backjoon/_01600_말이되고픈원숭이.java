@@ -2,6 +2,7 @@ package __Backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -33,9 +34,10 @@ public class _01600_말이되고픈원숭이 {
 		System.out.println(min == Integer.MAX_VALUE? -1 : min);
 	}
 	private static void BFS() {
-		Queue<int[]> Q = new LinkedList<int[]>();
-		boolean[][][] visited= new boolean[H][W][2];
+		LinkedList<int[]> Q = new LinkedList<int[]>();
+		boolean[][][] visited= new boolean[H][W][K+1];
 		Q.add(new int[] {0, 0, 0});	// 순서대로 (R, C, 점프횟수)
+		visited[0][0][0] = true;
 		int count = -1;
 		while(!Q.isEmpty()) {
 			int size = Q.size();
@@ -46,25 +48,36 @@ public class _01600_말이되고픈원숭이 {
 					min = Math.min(min, count);
 					continue;
 				}
-				visited[pop[0]][pop[1]][1] = true;
 				for (int dir = 0; dir < 4; dir++) {
 					int nr = pop[0] + DIR[dir][0];
 					int nc = pop[1] + DIR[dir][1];
 					if(nr >= H || nc >= W || nr < 0 || nc < 0) continue;
-					if(map[nr][nc] == 1 || visited[nr][nc][0]) continue;
-					visited[nr][nc][0] = true;
-					Q.offer(new int[] {nr, nc, pop[2]});
+					if(map[nr][nc] == 1 || visited[nr][nc][pop[2]]) continue;
+					visited[nr][nc][pop[2]] = true;
+					Q.offer(new int[] { nr, nc, pop[2] });
 				}
-				for (int dir = 0; dir < 8 && pop[2] < K ; dir++) {
-					int nr = pop[0] + HDIR[dir][0];
-					int nc = pop[1] + HDIR[dir][1];
-					if(nr >= H || nc >= W || nr < 0 || nc < 0) continue;
-					if(map[nr][nc] == 1 || visited[nr][nc][1]) continue;
-					Q.offer(new int[] { nr, nc, pop[2] + 1 });
+				if(pop[2] >= K) {
+					for (int dir = 0; dir < 8 ; dir++) {
+						int nr = pop[0] + HDIR[dir][0];
+						int nc = pop[1] + HDIR[dir][1];
+						if(nr >= H || nc >= W || nr < 0 || nc < 0) continue;
+						if(map[nr][nc] == 1 || visited[nr][nc][pop[2]+1]) continue;
+						visited[nr][nc][pop[2]+1] = true;
+						Q.offer(new int[] { nr, nc, pop[2]+1 });
+						
+					}
 				}
 			}
 		}
 		
 	}
 }
-
+/*
+1
+5 5
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 0 0
+0 0 0 1 1
+0 0 0 1 0
+*/
