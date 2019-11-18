@@ -12,6 +12,21 @@ import java.util.StringTokenizer;
 
 public class _06_다익스트라 {
 
+	static class Vertex implements Comparable<Vertex> {
+		int vertex, weight;
+		
+		public Vertex(int vertex, int weight) {
+			super();
+			this.vertex = vertex;
+			this.weight = weight;
+		}
+		
+		@Override
+		public int compareTo(Vertex o) {
+			return Integer.compare(this.weight, o.weight);
+		}
+	}
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
@@ -58,19 +73,5 @@ public class _06_다익스트라 {
 		System.out.println(Arrays.toString(distance));
 	}
 
-	static class Vertex implements Comparable<Vertex> {
-		int vertex, weight;
-
-		public Vertex(int vertex, int weight) {
-			super();
-			this.vertex = vertex;
-			this.weight = weight;
-		}
-
-		@Override
-		public int compareTo(Vertex o) {
-			return Integer.compare(this.weight, o.weight);
-		}
-	}
 
 }
