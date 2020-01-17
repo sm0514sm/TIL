@@ -1,7 +1,3 @@
-* vuex, router, vuetify 등 추가
- * 해당 골격을 토대로 상세 코드 작성 전까지 제작해야함
-
-----
 ## 개발 전 설정
 ### 1. PowerShell 관리자 권한으로 아래 명령어 수행
 ```
@@ -16,11 +12,11 @@ Set-ExecutionPolicy RemoteSigned
 ### 4. vue/cli, yarn 설치를 위해 CMD창에서 아래 명령어 수행
 ```
 npm -g install @vue/cli
-npm -g install yarn{code}
+npm -g install yarn
 ```
 ### 5. 새로운 프로젝트 생성
 
-vue create testvue{code}
+vue create testvue
 > 제가 만든 것을 Git에서 땡겨쓰므로 해당 작업은 하실 필요 없습니다.
 
 ### 6. `package.json` 에서 scripts.serve에서 포트 번호를 바꾸거나 추가
