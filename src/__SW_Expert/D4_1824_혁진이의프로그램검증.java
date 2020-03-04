@@ -13,7 +13,7 @@ public class D4_1824_혁진이의프로그램검증 {
 	static int C = 0;
 	static int rn, cn;
 	static int[][] dir = {{0, 1} , {0, -1} , {1, 0}, {-1, 0}}; // 우 좌 하 상
-	static char[][] text ;
+	static char[][] text;
 	public static int memSet(int val) {
 		if(val < 0)
 			mem = 15;
