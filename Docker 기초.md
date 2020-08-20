@@ -20,6 +20,8 @@ aufs(파일시스템) 적층형 이미지(base 이미지 + 다른 소스 이미�
 
 ## Docker 주요사용법
 
+![image-20200820232341399](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820232341399.png)
+
 - `docker pull busybox` : busybox라는 가벼운 도구모음? 리눅스 이미지를 불러온다.
 
 - `docker images` : 현재 설치된 이미지 리스트를 보인다
@@ -46,7 +48,32 @@ aufs(파일시스템) 적층형 이미지(base 이미지 + 다른 소스 이미�
 
   > ![image-20200820231753115](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820231753115.png)
 
-- 
 
-  
+
+
+
+
+![image-20200820232326097](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820232326097.png)
+
+- `docker login` : dockerhub에 push (private 저장소 pull)하기 위해 로그인
+
+- `docker push [ID]/[NAME]:[VERSION]` : dockerhub 에 push
+
+  > ![image-20200820233854191](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820233854191.png)
+  >
+  > 적층형이기 때문에 busybox 위에 push함을 알 수 있다. (효율적이여)
+
+- `docker rmi [NAME]` :  이미지 삭제
+
+  > `docker save [NAME] > ./[NAME].tgz` 로 binary하게 저장
+  >
+  > `docker load < ./[NAME].tgz` 로 불러오기 가능
+  >
+  > > 망분리 환경에서 검증이된 이미지를 파일단위로 관리하기 위함
+
+- `docker cp [CONTAINER_ID]:[파일경로] [HOST경로]` : 컨테이너 내부의 파일을 HOST로 복사
+
+
+
+
 
