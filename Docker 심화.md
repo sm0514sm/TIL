@@ -1,79 +1,21 @@
-## Docker 기초
+### 노하우
 
-#### 머신 안에 가상 머신
-
-커널이 하는 역할을 함 - 부팅이 되어있는 장비 위에 또 부팅하는 작업 (체크할 필요 없는뎅)
-
-#### 도커
-
-커널을 공유해서 부팅 과정이 없음 
-
-하나의 도커 이미지엔 하나의 어플리케이션 (프로세스 방식으로 돌어가서)
-
-LXC(다른 컨테이너)와의 차이점은 docker hub 이미지를 직접 만들지 않아도 됨
-
-aufs(파일시스템) 적층형 이미지(base 이미지 + 다른 소스 이미지) 효율적인 저장소 관리
+- Image 만들때 소문자만 가능하고 private registry의 경우 URI 포함
+- Runtime시 foregound mode만 가능함
+- 하나의 docker container에는 하나의 process만 운영
+- Ubuntu host 환경을 추천 - FS이 aufs & 다른OS는 Device-mapper 문제가 있어서
+- privileged mode를 통한 Host system 관리 [링크](http://bit.ly/elk_docker)
+- [12factor 필독 링크](https://12factor.net/ko/)
 
 ---
 
+## Rancher 설치 및 Docker containter orchestration
 
+> Rancher 여러개의 호스트를 하나의 자원으로하고 컨테이너를 어떻게 나눌것인지?
 
-## Docker 주요사용법
-
-![image-20200820232341399](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820232341399.png)
-
-- `docker pull busybox` : busybox라는 가벼운 도구모음? 리눅스 이미지를 불러온다.
-
-- `docker images` : 현재 설치된 이미지 리스트를 보인다
-
-- `docker run -it busybox sh` : busybox 이미지에서 sh 명령어를 실행한다.
-
-  > `exit` 하면  컨테이너에서 나옴. 메모리에서 detached
-  >
-  > Ctrl + p + q 로 나오면 남아있음
-  >
-  > ![image-20200820230856239](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820230856239.png)
-
-- `docker ps -a` : running 중이지 않는 것까지 모두 표시
-
-  > ![image-20200820230930608](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820230930608.png)
-
-- `docker start [NUMBER]` : Container 다시 실행
-
-- `docker attach [NUMBER]` : 실행중인 컨테이너로 진입
-
-- `docker commit [NUMBER]  [NAME]:[VERSION]` : 해당 컨테이너 스냅샷을 떠서 새롭게 만듬
-
-- `docker tag [NAME]:[VERSION] [NEW_NAME]:[NEW_VERSION]` : 이름 바꾸기
-
-  > ![image-20200820231753115](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820231753115.png)
+[Rancher 링크](https://rancher.com/quick-start)
 
 
 
-
-
-
-![image-20200820232326097](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820232326097.png)
-
-- `docker login` : dockerhub에 push (private 저장소 pull)하기 위해 로그인
-
-- `docker push [ID]/[NAME]:[VERSION]` : dockerhub 에 push
-
-  > ![image-20200820233854191](rsc/Docker%20%EA%B8%B0%EC%B4%88/image-20200820233854191.png)
-  >
-  > 적층형이기 때문에 busybox 위에 push함을 알 수 있다. (효율적이여)
-
-- `docker rmi [NAME]` :  이미지 삭제
-
-  > `docker save [NAME] > ./[NAME].tgz` 로 binary하게 저장
-  >
-  > `docker load < ./[NAME].tgz` 로 불러오기 가능
-  >
-  > > 망분리 환경에서 검증이된 이미지를 파일단위로 관리하기 위함
-
-- `docker cp [CONTAINER_ID]:[파일경로] [HOST경로]` : 컨테이너 내부의 파일을 HOST로 복사
-
-
-
-
+## Prometheus 를 통한 Host 모니터링
 
