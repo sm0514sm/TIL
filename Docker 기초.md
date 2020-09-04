@@ -127,9 +127,11 @@ EXPOSE 9000
 
 ### Docker-compose
 
+만들어져있는 이미지들을 한번에 올리는 것.
+
 ```
 - image : 사용할 docker image명
-- volumes : container에 mount 할 경로
+- volumes : container에 mount 할 경로 (docker-compose.yml 이 있는 경로로부터)
 - entrypoint : container 적재시 최종 실행되는 명령어
 - links : container 간 dependency 적용 (어떤 container가 이미 있어야하나)
 - ports : container와 Host간 port를 mapping
@@ -149,16 +151,17 @@ services:
             - MYSQL_USER=revel
             - MYSQL_PASSWORD=secret
         volumes:
-            - ./datadir:/var/lib/mysql
+            - ./datadir:/var/lib/mysql      # ./datadir은 host, /val/lib/mysql container
     web:
 #        build: . 
-        image: go_revel:0.1
+# build가 주석이 아니면 이미지를 외부에서 받아오지 않고 local의 dockerfile으로 부터 가져옴?
+        image: goody80/go_revel:0.1
         volumes:
             - ./myapp:/go/src/myapp
         entrypoint: revel run myapp
         ports:
             - 9000:9000
-#        depends_on:
+#        depends_on:   # (depends_on is same with links)
         links:
             - db
         environment:
@@ -170,4 +173,16 @@ services:
 #    db_data:
 #      driver: local
 ```
+
+
+
+### 실행
+
+![image-20200904211029463](img/Docker%20%EA%B8%B0%EC%B4%88/image-20200904211029463.png)
+
+> shell script 를 실행시켰다.
+>
+> 안에는 `docker-compose up -d ` 라는 명령어로 실행
+
+
 
