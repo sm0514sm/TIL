@@ -1,4 +1,11 @@
+
+
 fun main() {
-    val b = Array(5) { i -> i.toString() }
-    val a = arrayOf("1", "2", "3", "4", "5")
+    val array = arrayOf("가", "나")
+    for ((index, value) in array.withIndex()){
+        println("$index: $value")
+    }
+    for (i in array.indices) {
+        println("$i: ${array[i]}")
+    }
 }
