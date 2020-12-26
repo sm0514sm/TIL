@@ -129,7 +129,7 @@ for (item in collection){
 `iterator` 구현한 클래스 예제. `hasNext()`, `next()` 필요
 
 ```kotlin
-fun main(){
+fun `03_Packages_Return_and_Jumps`.main(){
     val mydata = MyData()
     for (item in mydata)
     	print(item)

@@ -17,9 +17,28 @@
 
     <Button
         android:id="@+id/button1"
-        android:layout_width="match_parent"
+        style="@style/TextAppearance.AppCompat.Button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="문자열 가져오기" />
+        android:backgroundTint="#BF5454"
+        android:backgroundTintMode="add"
+        android:text="문자열 가져오기"
+        android:textColor="#FFFFFF"
+        app:icon="@drawable/ic_launcher_foreground"
+        app:iconSize="50dp" />
+
+    <Button
+        android:id="@+id/button2"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTintMode="add"
+        android:text="문자열 가져오기"
+        android:textColor="#FFFFFF"
+        app:icon="@drawable/ic_launcher_foreground"
+        app:iconSize="50dp"
+        app:rippleColor="#DA0F0F"
+        app:shapeAppearance="@style/Theme.3_3_EditText" />
 
     <TextView
         android:id="@+id/textView1"
