@@ -9,7 +9,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.woobok.a3_11_chop"
+        applicationId "com.woobok.a3_12_progressbar"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
