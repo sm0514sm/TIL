@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val listener1 = RatingBar.OnRatingBarChangeListener { ratingBar, rating, fromUser ->
-        when(ratingBar?.id){
-            R.id.ratingBar2 -> {
+    val listener1 = RatingBar.OnRatingBarChangeListener { rb, rating, fromUser ->
+        when (rb) {
+            ratingBar2 -> {
                 textView.text = "Rating 2 : $rating\n"
                 if (fromUser) textView.append("사용자에 의해 설정\n")
                 else textView.append("코드에 의해 설정\n")
             }
-            R.id.ratingBar3 -> {
+            ratingBar3 -> {
                 textView2.text = "Rating 3 : $rating\n"
                 if (fromUser) textView2.append("사용자에 의해 설정\n")
                 else textView2.append("코드에 의해 설정\n")
