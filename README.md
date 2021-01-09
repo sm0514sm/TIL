@@ -42,7 +42,7 @@
 
 <br>
 
-## 1_Android_Part_1(UI_Programming)
+## 1. Android_Part_1(UI_Programming)
 
 ### [1. 안드로이드 소개 및 개발환경 구축](https://github.com/sm0514sm/Android_Study/blob/master/1_Android_Part_1(UI_Programming)/Lecture_Note/1.%20%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%20%EC%86%8C%EA%B0%9C%20%EB%B0%8F%20%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD%20%EA%B5%AC%EC%B6%95.md) (2020-12-20)
 
@@ -89,4 +89,27 @@
 -   AdapterView 기본 개념
 -   ListView
 -   CustomListView
+-   CustomAdapter
+-   Spinner
+-   GridView
+-   ViewPager
+-   AutoCompleteTextView
+
+<br>
+
+>   `예정`
+>
+>   ## 2. Android_Part_2(메뉴와 4대 구성요소)
+>
+>   <br>
+>
+>   ## 3. Android_Part_3(데이터관리와 네트워크)
+>
+>   <br>
+>
+>   ## 4. 나만의 앱 개발
+>
+>   <br>
+>
+>   
 
