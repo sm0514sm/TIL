@@ -147,5 +147,15 @@
     val invoice = invoice()
     ```
 
+<br>
+
+### 클래스가 포함할 수 있는 것들
+
+-   클래스 멤버 변수
+-   Constructor 생성자
+-   Initializer blocks
+-   함수
+-   Nested, Inner Classes
+
 
 
