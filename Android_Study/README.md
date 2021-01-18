@@ -94,8 +94,11 @@
 -   GridView
 -   ViewPager
 -   AutoCompleteTextView
+-   MultiAutoCompleteTextView
+-   SingleChoiceListView
+-   MultiChoiceListView
+-   RecyclerView
 
- 
 <br>
 
 >   `예정`
