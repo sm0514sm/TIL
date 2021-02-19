@@ -7,7 +7,7 @@
 # 3. 식별자는 순서에 영향 안끼치지만, 문자가 동일할 경우 식별자 순으로
 # 4. 숫자 로그는 입력 순서대로
 
-def my_solution(logs: list[str]) -> list[str]:
+def my_solution(logs: list) -> list:
     letters, digits = [], []
     for log in logs:
         if log.split()[1].isdigit():

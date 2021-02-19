@@ -6,8 +6,8 @@
 
 ### Docker_k8s_Study
 
-### Frontend_Study
+### Front-end
 
-### Java_Spring_Study
+### Back-end
 
 ### ELK Stack

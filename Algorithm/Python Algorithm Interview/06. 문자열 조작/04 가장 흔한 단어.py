@@ -6,7 +6,7 @@ import collections
 import re
 
 
-def my_solution(paragraph: str, banned: list[str]):
+def my_solution(paragraph: str, banned: list):
     paragraph = paragraph.lower()
     paragraph2 = ''.join(c if c.isalnum() else " " for c in paragraph)
     paragraph2 = paragraph2.split()
@@ -18,7 +18,7 @@ def my_solution(paragraph: str, banned: list[str]):
     return max(word_cnt_dict, key=lambda key: word_cnt_dict[key])
 
 
-def solution(paragraph: str, banned: list[str]):
+def solution(paragraph: str, banned: list):
     words = [word for word in re.sub(r'[^\w]', ' ', paragraph).lower().split() if word not in banned]
     counts = collections.Counter(words)
     return counts.most_common(1)[0][0]
