@@ -57,7 +57,6 @@ def processing(unstructed_file: str = './bookItem.csv') -> None:
     Args:
         unstructed_file (str): Csv file to process. Consists of fields _id, publish_date, publish_info.
     """
-    start = timeit.default_timer()
     rmtree('publish_info/', ignore_errors=True)
     os.makedirs('publish_info/', exist_ok=True)
     with open(unstructed_file, 'r', encoding='utf-8') as f_read:
@@ -75,7 +74,6 @@ def processing(unstructed_file: str = './bookItem.csv') -> None:
                 if psutil.Process(os.getpid()).memory_info().rss > MAXIMUM_MEMORY:
                     write_publish_info(info_index)
         write_publish_info(info_index)
-    print(timeit.default_timer() - start, "초")
 
 
 def search(search_query: str) -> list:
@@ -85,7 +83,6 @@ def search(search_query: str) -> list:
     Returns:
         list: The latest 5 results.
     """
-    start = timeit.default_timer()
     tokens = set(re.sub("[^a-zA-Z0-9가-힣]", ' ', search_query.lower()).split())
     sub_query_results = []
     for token in tokens:
@@ -100,7 +97,6 @@ def search(search_query: str) -> list:
     for sub_query_result in sub_query_results[1:]:
         query_result.intersection_update(sub_query_result)
     result = sorted(list(query_result), key=lambda x: int(x[1]) if x[1] else 0, reverse=True)
-    print(timeit.default_timer() - start, "초")
     return [result[i][0] for i in range(min(5, len(result)))]
 
 
