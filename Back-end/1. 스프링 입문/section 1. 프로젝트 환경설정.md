@@ -61,7 +61,41 @@ gradle -> IntelliJ IDEA로 바꿔야 속도가 더 빠름
 
 ## 라이브러리 살펴보기
 
+> `External Libraries`
+>
+> Gradle은 의존관계가 있는 라이브러리를 함께 다운로드
+
+Command 2번 누르면 테두리 메뉴에서 Gradle를 들어감
+
+<img src="img/section%201.%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/image-20210401233030222.png" alt="image-20210401233030222" style="zoom: 50%;" />
+
+### **스프링 부트 라이브러리**
+
+- spring-boot-starter-web 
+    - **spring-boot-starter-tomcat: 톰캣 (웹서버)** 
+    - **spring-webmvc: 스프링 웹 MVC**
+- spring-boot-starter-thymeleaf: 타임리프 템플릿 엔진(View) 
+- spring-boot-starter(공통): 스프링 부트 + 스프링 코어 + 로깅
+    - spring-boot 
+        - spring-core
+    - spring-boot-starter-logging 
+        - logback, slf4j
+
+### **테스트 라이브러리**
+
+- spring-boot-starter-test
+    - junit: 테스트 프레임워크
+    - mockito: 목 라이브러리
+    - assertj: 테스트 코드를 좀 더 편하게 작성하게 도와주는 라이브러리 
+    - spring-test: 스프링 통합 테스트 지원
+
+
+
 ## View 환경설정
 
+
+
 ## 빌드하고 실행하기
+
+
 
