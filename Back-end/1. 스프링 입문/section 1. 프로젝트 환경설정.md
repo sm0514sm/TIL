@@ -6,7 +6,7 @@
 
 ### 프로젝트 선택
 
-![image-20210401230040002](img/section%201.%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/image-20210401230040002.png)
+![image-20210401230040002](img/section%201.%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/image-20210401230040002.png)
 
 - Project: `Gradle` (최근엔 Gradle 많이 사용)
 - Languages: `Java`
@@ -53,7 +53,7 @@ test {
 
 ### build 설정 바꾸기
 
-![image-20210401231503178](img/section%201.%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/image-20210401231503178.png)
+![image-20210401231503178](img/section%201.%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/image-20210401231503178.png)
 
 gradle -> IntelliJ IDEA로 바꿔야 속도가 더 빠름
 
@@ -67,7 +67,7 @@ gradle -> IntelliJ IDEA로 바꿔야 속도가 더 빠름
 
 Command 2번 누르면 테두리 메뉴에서 Gradle를 들어감
 
-<img src="img/section%201.%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/image-20210401233030222.png" alt="image-20210401233030222" style="zoom: 50%;" />
+<img src="https://github.com/sm0514sm/TIL/blob/master/Back-end/1.%20%EC%8A%A4%ED%94%84%EB%A7%81%20%EC%9E%85%EB%AC%B8/img/section%201.%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/image-20210401233030222.png?raw=true" alt="image-20210401233030222" style="zoom: 50%;" />
 
 ### **스프링 부트 라이브러리**
 
@@ -163,7 +163,7 @@ public class HelloController {
 
 ### 동작 환경
 
-![image-20210401235705046](img/section%201.%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%20%E1%84%92%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A5%E1%86%AF%E1%84%8C%E1%85%A5%E1%86%BC/image-20210401235705046.png)
+![image-20210401235705046](img/section%201.%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/image-20210401235705046.png)
 
 컨트롤러에서 return 값으로 문자를 반환하면 viewResolver가 화면을 찾아서 처리
 
