@@ -24,7 +24,7 @@
 2.  resources 내부에 있는 html 찾기
 3.  해당 html 반환
 
-​    
+ <br>
 
 ## MVC와 템플릿 엔진 (동적)
 
@@ -88,7 +88,7 @@ public class HelloController {
 >
 >   ![image-20210404203135678](_img/image-20210404203135678.png)
 
-   
+<br>
 
 ## API
 
