@@ -28,6 +28,8 @@
 
 
 
+​    
+
 ## MVC와 템플릿 엔진 (동적)
 
 >   MVC: Model, View, Controller
@@ -89,6 +91,8 @@ public class HelloController {
 >   ```
 >
 >   ![image-20210404203135678](_img/image-20210404203135678.png)
+
+
 
 
 
