@@ -440,3 +440,4 @@
     -   `findByName()`, `findByEmail()` 처럼 메서드 이름만으로 조회 기능 제공 (규칙이 있음!)
         -   `findByXXX()`로 하면 알아서 `select m from Member m where m.XXX = ?`로 실행
     -   페이징 기능 자동 제공
+
