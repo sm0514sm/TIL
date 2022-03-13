@@ -19,14 +19,14 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id") // foreign key 지정
     private Member member;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
@@ -35,4 +35,20 @@ public class Order {
 
     @Enumerated(EnumType.STRING) // EnumType.ORDINAL 이면 0, 1, 2 .. 순으로 들어가는데 중간에 값이 추가되면 장애발생
     private OrderStatus status; // 주문상태 [ORDER, CANCEL]
+
+    //== 양방향 연관관계 편의 메서드 ==//
+    public void setMember(Member member) {
+        this.member = member;
+        member.getOrders().add(this);
+    }
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    public void setDelivery(Delivery delivery) {
+        this.delivery = delivery;
+        delivery.setOrder(this);
+    }
 }
