@@ -2,11 +2,9 @@ package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository // @Component 있어서 ComponentScan에 사용됨
@@ -15,7 +13,7 @@ public class MemberRepository {
 
     // @PersistenceContext // EntityManager를 만들어서 주입해줌
     // 원래는 PersistenceContext 써야하지만 Spring boot 에서 Autowire 지원해줘서 이거 써도됨
-    private EntityManager em;
+    private final EntityManager em;
 
     public void save(Member member) {
         em.persist(member);
