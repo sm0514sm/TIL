@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 
+import org.springframework.stereotype.Service;
+
 @RequiredArgsConstructor
 public class MemberService {
   private final MemberRepository memberRepository;
