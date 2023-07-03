@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import hello.hellospring.domain.Member;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public interface MemberRepository {
   Member save(Member member);
 
