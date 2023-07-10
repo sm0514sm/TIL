@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import lombok.RequiredArgsConstructor;
 
+import hello.hellospring.aop.TimeTraceAop;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.service.MemberService;
 
